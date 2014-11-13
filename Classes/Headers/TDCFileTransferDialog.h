@@ -86,11 +86,11 @@ typedef enum TDCFileTransferDialogNavigationControllerSelectedTab : NSInteger {
 /* Returning nil means that something failed and the transfer was
  never added to list of transfers. */
 - (NSString *)addReceiverForClient:(IRCClient *)client
-						  nickname:(NSString *)nickname
-						   address:(NSString *)hostAddress
-							  port:(NSInteger)hostPort
-						  filename:(NSString *)filename
-						  filesize:(TXUnsignedLongLong)totalFilesize
+                          nickname:(NSString *)nickname
+                           address:(NSString *)hostAddress
+                              port:(NSInteger)hostPort
+                          filename:(NSString *)filename
+                          filesize:(TXUnsignedLongLong)totalFilesize
 					   token:(NSString *)transferToken;
 
 - (NSString *)addSenderForClient:(IRCClient *)client
@@ -99,6 +99,7 @@ typedef enum TDCFileTransferDialogNavigationControllerSelectedTab : NSInteger {
 				  autoOpen:(BOOL)autoOpen;
 
 - (BOOL)fileTransferExistsWithToken:(NSString *)transferToken;
+- (TDCFileTransferDialogTransferController *)fileTransferMatchingFilename:(NSString *)fileName;
 
 - (TDCFileTransferDialogTransferController *)fileTransferSenderMatchingToken:(NSString *)transferToken;
 - (TDCFileTransferDialogTransferController *)fileTransferReceiverMatchingToken:(NSString *)transferToken;
